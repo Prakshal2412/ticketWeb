@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const TicketForm = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -18,7 +18,7 @@ const TicketForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("/api/Tickets", {
+    const res = await fetch("api/Tickets", {
       method: "POST",
       body: JSON.stringify({ formData }),
       "content-type": "application/json",
@@ -46,7 +46,7 @@ const startingTicketData = {
 const [formData, setFormData] = useState(startingTicketData);
 return (
   <div className='flex justify-center'>
-    <form className='flex flex-col gap-3 w-1/2' method='post' onSubmit={handleSubmit}>
+    <form className='flex flex-col gap-3 w-1/2' method="post" onSubmit={handleSubmit}>
       <h3>Create your Ticket</h3>
       <label>Title</label>
       <input id='title' name='title' type="text" onChange={handleChange} required={true} value={formData.title} />
